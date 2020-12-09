@@ -1,8 +1,8 @@
 class ApplicationController < ActionController::Base
 # L L L
 
-    helper_method :current_user, logged_in?
-    protection_from_forgery with: :exception
+    helper_method :current_user, :logged_in?
+    protect_from_forgery with: :exception
 
     def require_no_user!                             #R
         redirect_to user_url if current_user 

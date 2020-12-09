@@ -39,3 +39,255 @@ Migrating to CreateUsers (20201209183929)
   ↳ bin/rails:9
   [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
   ↳ bin/rails:9
+Started GET "/users/new" for ::1 at 2020-12-09 15:40:17 -0500
+
+ActiveRecord::NoDatabaseError - FATAL:  database "goal_app_development" does not exist:
+
+Started POST "/__better_errors/fc387e22dbf5ffbd/variables" for ::1 at 2020-12-09 15:40:18 -0500
+  [1m[35m (1091.0ms)[0m  [1m[35mCREATE DATABASE "goal_app_development" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35m (604.1ms)[0m  [1m[35mCREATE DATABASE "goal_app_test" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35m (37.6ms)[0m  [1m[35mCREATE DATABASE "goal_app_development" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE DATABASE "goal_app_test" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35mSQL (18.5ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  ↳ db/schema.rb:16
+  [1m[35m (9.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  ↳ db/schema.rb:18
+  [1m[35m (91.3ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "email" character varying NOT NULL, "password_digest" character varying NOT NULL, "session_token" character varying NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:18
+  [1m[35m (26.3ms)[0m  [1m[35mCREATE  INDEX  "index_users_on_session_token" ON "users"  ("session_token")[0m
+  ↳ db/schema.rb:18
+  [1m[35m (27.0ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ db/schema.rb:13
+  [1m[35m (12.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20201209183929)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (26.3ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (17.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ db/schema.rb:13
+  [1m[35m (1.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Create (3.9ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-12-09 20:41:35.783453"], ["updated_at", "2020-12-09 20:41:35.783453"]]
+  ↳ db/schema.rb:13
+  [1m[35m (2.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35mSQL (1.5ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  ↳ db/schema.rb:16
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  ↳ db/schema.rb:18
+  [1m[35m (45.2ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "email" character varying NOT NULL, "password_digest" character varying NOT NULL, "session_token" character varying NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:18
+  [1m[35m (36.6ms)[0m  [1m[35mCREATE  INDEX  "index_users_on_session_token" ON "users"  ("session_token")[0m
+  ↳ db/schema.rb:18
+  [1m[35m (14.7ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ db/schema.rb:13
+  [1m[35m (1.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20201209183929)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (29.2ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ db/schema.rb:13
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Create (2.0ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-12-09 20:41:36.071195"], ["updated_at", "2020-12-09 20:41:36.071195"]]
+  ↳ db/schema.rb:13
+  [1m[35m (3.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Update (0.7ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = $1, "updated_at" = $2 WHERE "ar_internal_metadata"."key" = $3[0m  [["value", "test"], ["updated_at", "2020-12-09 20:41:36.091671"], ["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (1.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (10.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Started GET "/users/new" for ::1 at 2020-12-09 15:42:06 -0500
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/soura934/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+
+SyntaxError - syntax error, unexpected <<
+class UsersController << ApplicationController
+                      ^~:
+  app/controllers/users_controller.rb:1:in `'
+
+Started POST "/__better_errors/af2db90ede539d70/variables" for ::1 at 2020-12-09 15:42:07 -0500
+Started GET "/users/new" for ::1 at 2020-12-09 15:42:35 -0500
+
+ActionController::RoutingError - undefined method `logged_in?' for ApplicationController:Class
+Did you mean?  logger:
+
+Started POST "/__better_errors/8fd72c7a0b92fad1/variables" for ::1 at 2020-12-09 15:42:36 -0500
+Started GET "/users/new" for ::1 at 2020-12-09 15:43:34 -0500
+
+ActionController::RoutingError - undefined method `protection_from_forgery' for ApplicationController:Class
+Did you mean?  protect_from_forgery:
+
+Started POST "/__better_errors/58b800dd6cf85178/variables" for ::1 at 2020-12-09 15:43:35 -0500
+Started GET "/users/new" for ::1 at 2020-12-09 15:43:57 -0500
+Processing by UsersController#new as HTML
+Completed 500 Internal Server Error in 112ms (ActiveRecord: 0.0ms)
+
+
+
+SyntaxError - syntax error, unexpected ':', expecting ')'
+... user = User.find_by(username :username)
+...                              ^:
+  app/models/user.rb:12:in `'
+  app/controllers/users_controller.rb:4:in `new'
+
+Started POST "/__better_errors/126da19087e36f85/variables" for ::1 at 2020-12-09 15:43:58 -0500
+Started GET "/users/new" for ::1 at 2020-12-09 16:03:24 -0500
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (26.5ms)
+Completed 200 OK in 7634ms (Views: 7071.5ms | ActiveRecord: 46.3ms)
+
+
+Started GET "/users/new" for ::1 at 2020-12-09 16:03:53 -0500
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 1278ms (Views: 1274.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for ::1 at 2020-12-09 16:08:12 -0500
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 1163ms (Views: 1158.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for ::1 at 2020-12-09 16:12:22 -0500
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 1299ms (Views: 1297.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for ::1 at 2020-12-09 16:12:48 -0500
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 1221ms (Views: 1216.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for ::1 at 2020-12-09 16:13:25 -0500
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 1145ms (Views: 1143.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for ::1 at 2020-12-09 16:13:34 -0500
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 1282ms (Views: 1280.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for ::1 at 2020-12-09 16:18:06 -0500
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 1246ms (Views: 1244.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for ::1 at 2020-12-09 16:18:10 -0500
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 1117ms (Views: 1115.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for ::1 at 2020-12-09 16:21:57 -0500
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 1255ms (Views: 1248.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for ::1 at 2020-12-09 16:31:33 -0500
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (79.2ms)
+Completed 500 Internal Server Error in 1963ms (ActiveRecord: 0.0ms)
+
+
+
+SyntaxError - syntax error, unexpected keyword_in, expecting keyword_end
+'.freeze;     log in page 
+                  ^~:
+  app/views/users/new.html.erb:24:in `'
+  app/controllers/users_controller.rb:5:in `new'
+
+Started POST "/__better_errors/e9bfb6bdc62b3524/variables" for ::1 at 2020-12-09 16:31:38 -0500
+Started GET "/users/new" for ::1 at 2020-12-09 16:31:47 -0500
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (4401.2ms)
+Completed 500 Internal Server Error in 6399ms (ActiveRecord: 0.0ms)
+
+
+
+NameError - undefined local variable or method `redirect_' for #<#<Class:0x000055dafcee4c10>:0x00007fc618b073f0>:
+  app/views/users/new.html.erb:26:in `_app_views_users_new_html_erb__678315700663261932_70244397232320'
+  app/controllers/users_controller.rb:5:in `new'
+
+Started POST "/__better_errors/062c82ac3616256c/variables" for ::1 at 2020-12-09 16:31:57 -0500
+Started GET "/users/new" for ::1 at 2020-12-09 16:32:13 -0500
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 4272ms (Views: 4271.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for ::1 at 2020-12-09 16:32:51 -0500
+Started POST "/users" for ::1 at 2020-12-09 16:32:51 -0500
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"ZfeqlZ2/vMNXjhPcSQmOb9QlRDESjHIVK89Dh/EX7eTPivECfDh5Z/UvCQES7sAWg8TNef2GsfWPTL3uR3EnCA==", "Email"=>"", "Password"=>"[FILTERED]"}
+Completed 400 Bad Request in 146ms (ActiveRecord: 0.0ms)
+
+
+
+ActionController::ParameterMissing - param is missing or the value is empty: User:
+  app/controllers/users_controller.rb:21:in `user_params'
+  app/controllers/users_controller.rb:9:in `create'
+
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"ZfeqlZ2/vMNXjhPcSQmOb9QlRDESjHIVK89Dh/EX7eTPivECfDh5Z/UvCQES7sAWg8TNef2GsfWPTL3uR3EnCA==", "Email"=>"", "Password"=>"[FILTERED]"}
+Completed 400 Bad Request in 140ms (ActiveRecord: 0.0ms)
+
+
+
+ActionController::ParameterMissing - param is missing or the value is empty: User:
+  app/controllers/users_controller.rb:21:in `user_params'
+  app/controllers/users_controller.rb:9:in `create'
+
+Started POST "/__better_errors/7973ab9aacbfb061/variables" for ::1 at 2020-12-09 16:32:53 -0500
+Started POST "/users" for ::1 at 2020-12-09 16:34:14 -0500
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"ZfeqlZ2/vMNXjhPcSQmOb9QlRDESjHIVK89Dh/EX7eTPivECfDh5Z/UvCQES7sAWg8TNef2GsfWPTL3uR3EnCA==", "Email"=>"", "Password"=>"[FILTERED]"}
+Completed 400 Bad Request in 10ms (ActiveRecord: 0.0ms)
+
+
+
+ActionController::ParameterMissing - param is missing or the value is empty: User:
+  app/controllers/users_controller.rb:21:in `user_params'
+  app/controllers/users_controller.rb:9:in `create'
+
+Started POST "/__better_errors/d58b08f9c2e3a470/variables" for ::1 at 2020-12-09 16:34:16 -0500
